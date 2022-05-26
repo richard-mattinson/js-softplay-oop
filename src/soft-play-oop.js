@@ -23,20 +23,10 @@ class SoftPlay {
   }
 
   leave (numAdults, numChildren) {
-    if (numChildren > numAdults) {
-      return false
-    }
-    if (this.adults - numAdults < 0) {
-      // console.log('exited because adults are negative')
-      return false
-    }
-    if (this.children - numChildren < 0) {
-      // console.log('exited because children are negative')
-      return false
-    }
-    // console.log('remaining adults:', (this.adults - numAdults), 'remaining child:', (this.children - numChildren), 'enough adults?', (this.adults - numAdults) < (this.children - numChildren))
-    if ((this.adults - numAdults) < (this.children - numChildren)) {
-      // console.log(numAdults, numChildren, this.adults, this.children, 'exited because fewer adults than children!')
+    if (numChildren > numAdults ||
+      this.adults - numAdults < 0 ||
+      this.children - numChildren < 0 ||
+      (this.adults - numAdults) < (this.children - numChildren)) {
       return false
     }
 
